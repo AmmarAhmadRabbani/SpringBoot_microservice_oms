@@ -1,0 +1,31 @@
+package com.te.oms.emps.dto;
+
+import com.te.oms.emps.entity.Department;
+import com.te.oms.emps.entity.Organization;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Setter
+@Getter
+@ToString
+public class FetchEmployeeDto {
+	
+	private String employeeId;
+	private String employeeName;
+	private String employeeEmail;
+	private int employeeAge;
+	
+	
+	private Department department;
+	
+	private Organization organization;
+	
+	
+}
+

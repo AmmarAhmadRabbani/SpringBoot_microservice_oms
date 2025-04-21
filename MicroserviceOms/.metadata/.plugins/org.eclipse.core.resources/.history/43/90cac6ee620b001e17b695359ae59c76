@@ -1,0 +1,6 @@
+package com.te.oms.depts.entity;
+
+
+public class Organization {
+
+}

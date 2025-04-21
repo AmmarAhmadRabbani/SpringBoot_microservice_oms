@@ -1,0 +1,27 @@
+package com.te.oms.depts.serviceimpl;
+
+import org.springframework.stereotype.Service;
+
+import com.te.oms.depts.entity.Department;
+import com.te.oms.depts.repo.DepartmentRepo;
+import com.te.oms.depts.service.DeptService;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class DeptServiceImpl implements DeptService {
+
+	
+	private final DepartmentRepo departmentRepo;
+	
+	
+	
+	@Override
+	public int addDept(Department department) {
+		
+		return departmentRepo.save(department).getDepartmentId();
+	}
+	
+	
+}

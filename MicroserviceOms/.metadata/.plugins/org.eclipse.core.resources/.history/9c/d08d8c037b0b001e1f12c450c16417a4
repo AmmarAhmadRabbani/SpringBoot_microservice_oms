@@ -1,0 +1,17 @@
+package com.te.oms.emps.dto;
+
+import com.te.oms.emps.entity.Department;
+
+public class FetchEmployeeDto {
+	
+	private String employeeId;
+	private String employeeName;
+	private String employeeEmail;
+	private int employeeAge;
+	
+	
+	private Department department;
+	
+	
+}
+

@@ -1,0 +1,19 @@
+package com.te.oms.emps.service;
+
+import java.util.List;
+
+import com.te.oms.emps.dto.AddEmployeeDto;
+import com.te.oms.emps.dto.FetchEmployeeDto;
+import com.te.oms.emps.entity.Employee;
+
+public interface EmployeeService {
+
+	String addEmployee(AddEmployeeDto addEmployeeDto);
+
+	FetchEmployeeDto findByEmpId(String empId);
+
+	List<FetchEmployeeDto> findAllEmployees();
+
+	Employee findEmployeesBydeptId(int id);
+
+}

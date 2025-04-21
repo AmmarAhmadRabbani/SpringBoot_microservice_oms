@@ -1,0 +1,10 @@
+package com.te.oms.emps.dto;
+
+public class AddEmployeeDto {
+
+	private int employeeId;
+	private String employeeName;
+	private String employeeEmail;
+	private String employeePassword;
+	private int employeeAge;
+}

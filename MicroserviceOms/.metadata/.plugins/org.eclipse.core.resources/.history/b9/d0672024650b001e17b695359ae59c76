@@ -1,0 +1,9 @@
+package com.te.oms.depts.service;
+
+import com.te.oms.depts.entity.Department;
+
+public interface DeptService {
+
+	void addDept(Department department);
+
+}

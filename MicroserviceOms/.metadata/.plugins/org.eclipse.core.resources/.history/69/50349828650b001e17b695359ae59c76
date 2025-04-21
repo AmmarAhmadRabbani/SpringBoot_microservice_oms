@@ -1,0 +1,11 @@
+package com.te.oms.depts.serviceimpl;
+
+import org.springframework.stereotype.Service;
+
+import com.te.oms.depts.service.DeptService;
+
+@Service
+public class DeptServiceImpl implements DeptService {
+	
+	
+}

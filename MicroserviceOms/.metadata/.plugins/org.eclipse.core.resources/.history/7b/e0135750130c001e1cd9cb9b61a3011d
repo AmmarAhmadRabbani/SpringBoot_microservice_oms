@@ -1,0 +1,14 @@
+package com.te.oms.emps.repo;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.te.oms.emps.entity.Employee;
+
+public interface EmployeeRepo extends JpaRepository<Employee, Integer>{
+	
+	Optional<Employee> findByEmployeeId(String id);
+	
+
+}

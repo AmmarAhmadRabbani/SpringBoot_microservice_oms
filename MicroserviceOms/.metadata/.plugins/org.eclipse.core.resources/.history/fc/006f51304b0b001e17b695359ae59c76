@@ -1,0 +1,16 @@
+package com.te.oms.emps.entity;
+
+import javax.persistence.Id;
+
+public class Employee {
+
+	@Id
+	private int employeeId;
+	private String employeeName;
+	private String employeeEmail;
+	private String employeePassword;
+	
+	
+	
+	
+}

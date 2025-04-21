@@ -1,0 +1,17 @@
+package com.te.oms.depts.service;
+
+import com.te.oms.depts.entity.Department;
+
+public interface DeptService {
+
+	int	addDept(Department department);
+
+	Department findByDeptName(String name);
+
+	Department findByDeptId(int id);
+
+	Department findEmployeesInDept(String name);
+
+	Department getAllDeptByOrgId(int id);
+
+}

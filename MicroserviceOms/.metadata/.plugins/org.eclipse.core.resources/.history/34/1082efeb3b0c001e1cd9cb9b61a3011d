@@ -1,0 +1,5 @@
+package com.te.oms.externalservices;
+
+public interface DepartmentService {
+
+}

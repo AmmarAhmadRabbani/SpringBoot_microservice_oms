@@ -1,0 +1,17 @@
+package com.te.oms.depts.entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Setter
+@Getter
+public class Organization {
+
+	private int organizationId;
+	private String orgName;
+
+}

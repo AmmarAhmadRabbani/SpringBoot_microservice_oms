@@ -1,0 +1,28 @@
+package com.te.oms.depts.controller;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.te.oms.depts.entity.Department;
+import com.te.oms.depts.response.AppResponse;
+import com.te.oms.depts.service.DeptService;
+
+import lombok.RequiredArgsConstructor;
+
+@RestController
+@RequiredArgsConstructor
+public class DepartmentController {
+	
+	private final DeptService deptService;
+	
+	
+	public ResponseEntity<AppResponse> addDept(@RequestBody Department department){
+		int deptId = deptService.addDept(department);
+		
+		return ;
+		
+	}
+	
+
+}

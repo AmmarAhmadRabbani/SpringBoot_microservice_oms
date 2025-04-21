@@ -1,0 +1,12 @@
+package com.te.oms.emps.service;
+
+import com.te.oms.emps.dto.AddEmployeeDto;
+import com.te.oms.emps.dto.FetchEmployeeDto;
+
+public interface EmployeeService {
+
+	String addEmployee(AddEmployeeDto addEmployeeDto);
+
+	FetchEmployeeDto findByEmpId(String empId);
+
+}

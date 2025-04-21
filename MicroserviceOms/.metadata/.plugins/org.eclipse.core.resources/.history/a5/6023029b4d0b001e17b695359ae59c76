@@ -1,0 +1,5 @@
+package com.te.oms.emps.service;
+
+public interface EmployeeService {
+
+}

@@ -1,0 +1,52 @@
+package com.te.oms.depts.serviceimpl;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.te.oms.depts.entity.Department;
+import com.te.oms.depts.externalservice.EmployeeService;
+import com.te.oms.depts.repo.DepartmentRepo;
+import com.te.oms.depts.service.DeptService;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class DeptServiceImpl implements DeptService {
+
+	private final DepartmentRepo departmentRepo;
+	
+	private final EmployeeService employeeService;
+
+	@Override
+	public int addDept(Department department) {
+
+		return departmentRepo.save(department).getDepartmentId();
+	}
+
+	@Override
+	public Department findByDeptName(String name) {
+		Department department = departmentRepo.findByDepartmentName(name).get();
+		return department;
+	}
+
+	@Override
+	public Department findByDeptId(int id) {
+		return departmentRepo.findById(id).get();
+	}
+
+	@Override
+	public Department findEmployeesInDept(String name) {
+		Department department = departmentRepo.findByDepartmentName(name).get();
+		department.setEmployees(employeeService.findEmployeesBydeptId(department.getDepartmentId()));		
+		return department;
+	}
+
+	@Override
+	public List<Department> getAllDeptByOrgId(int id) {
+		
+		return departmentRepo.findAllByOrganizationId(id);
+	}
+
+}

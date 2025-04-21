@@ -1,0 +1,8 @@
+package com.te.oms.depts.serviceimpl;
+
+import com.te.oms.depts.service.DeptService;
+
+public class DeptServiceImpl implements DeptService {
+	
+	
+}

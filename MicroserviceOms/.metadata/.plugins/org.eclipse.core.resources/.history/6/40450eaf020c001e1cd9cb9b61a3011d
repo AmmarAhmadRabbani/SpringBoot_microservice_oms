@@ -1,0 +1,31 @@
+package com.te.oms.orgs.serviceimpl;
+
+import org.springframework.stereotype.Service;
+
+import com.te.oms.orgs.entity.Organization;
+import com.te.oms.orgs.repo.OrganizationRepo;
+import com.te.oms.orgs.service.OrgService;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class OrgServiceImpl implements OrgService {
+	
+	private final OrganizationRepo organizationRepo;
+	
+	@Override
+	public String addOrg(Organization organization) {
+		
+		return organizationRepo.save(organization).getOrgName();
+	}
+
+	@Override
+	public Organization findByOrgId(int id) {
+		Organization organization = organizationRepo.findById(id).get();
+		
+		
+		return null;
+	}
+
+}

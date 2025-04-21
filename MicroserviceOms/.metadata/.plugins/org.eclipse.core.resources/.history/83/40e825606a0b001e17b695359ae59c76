@@ -1,0 +1,19 @@
+package com.te.oms.orgs.controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.te.oms.orgs.service.OrgService;
+
+import lombok.RequiredArgsConstructor;
+
+@RestController
+@RequestMapping("/org")
+@RequiredArgsConstructor
+public class OrganizationController {
+	
+	private OrgService orgService;
+	
+	
+
+}

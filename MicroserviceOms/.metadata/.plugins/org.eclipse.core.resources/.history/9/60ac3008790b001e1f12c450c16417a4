@@ -1,0 +1,21 @@
+package com.te.oms.emps.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Setter
+@Getter
+public class AddEmployeeDto {
+
+	private String employeeId;
+	
+	private String employeeName;
+	private String employeeEmail;
+	private String employeePassword;
+	private int employeeAge;
+	private String deptName;
+}

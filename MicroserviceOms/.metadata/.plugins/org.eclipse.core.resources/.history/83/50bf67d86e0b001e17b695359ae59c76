@@ -1,0 +1,10 @@
+package com.te.oms.orgs.serviceimpl;
+
+import org.springframework.stereotype.Service;
+
+import com.te.oms.orgs.service.OrgService;
+
+@Service
+public class OrgServiceImpl implements OrgService {
+
+}

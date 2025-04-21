@@ -1,0 +1,48 @@
+package com.te.oms.orgs.controller;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.te.oms.orgs.entity.Organization;
+import com.te.oms.orgs.response.AppResponse;
+import com.te.oms.orgs.service.OrgService;
+
+import lombok.RequiredArgsConstructor;
+
+@RestController
+@RequestMapping("/org")
+@RequiredArgsConstructor
+public class OrganizationController {
+
+	private final OrgService orgService;
+
+	@PostMapping("/addOrg")
+	public ResponseEntity<AppResponse> addOrg(@RequestBody Organization organization) {
+		String orgName = orgService.addOrg(organization);
+		return new ResponseEntity<AppResponse>(AppResponse.builder().data(orgName)
+				.message(orgName + " is added successfully ").status(HttpStatus.OK.value()).error(false).build(),
+				HttpStatus.OK);
+	}
+
+	@GetMapping("/findByOrgId/{id}")
+	public Organization findByOrgId(@PathVariable int id) {
+		return orgService.findByOrgId(id);
+
+	}
+	
+	@GetMapping("/getAllDeptsByOrgId/{id}")
+	public ResponseEntity<AppResponse> getAllDepartmentsByOrgId(@PathVariable int id){
+		Organization organization = orgService.getAllDepartmentsByOrgId(id);
+		
+		return new ResponseEntity<AppResponse>(AppResponse.builder().data(organization)
+				.message("following are the departments of "+organization.getOrgName()).status(HttpStatus.OK.value()).error(false).build(),
+				HttpStatus.OK);
+	}
+
+}

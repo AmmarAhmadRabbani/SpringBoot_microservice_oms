@@ -1,0 +1,10 @@
+package com.te.oms.depts.externalservice;
+
+import org.springframework.cloud.openfeign.FeignClient;
+
+@FeignClient(name="EMPLOYEE-SERVICE")
+public interface EmployeeService {
+	
+	
+
+}

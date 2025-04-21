@@ -1,0 +1,13 @@
+package com.te.oms.orgs.service;
+
+import com.te.oms.orgs.entity.Organization;
+
+public interface OrgService {
+
+	String addOrg(Organization organization);
+
+	Organization findByOrgId(int id);
+
+	Organization getAllDepartmentsByOrgId(int id);
+
+}

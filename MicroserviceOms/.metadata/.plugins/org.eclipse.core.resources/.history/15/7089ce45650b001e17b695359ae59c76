@@ -1,0 +1,18 @@
+package com.te.oms.depts.serviceimpl;
+
+import org.springframework.stereotype.Service;
+
+import com.te.oms.depts.entity.Department;
+import com.te.oms.depts.service.DeptService;
+
+@Service
+public class DeptServiceImpl implements DeptService {
+
+	@Override
+	public int addDept(Department department) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	
+}

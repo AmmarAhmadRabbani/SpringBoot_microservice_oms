@@ -1,0 +1,7 @@
+package com.te.oms.orgs.serviceimpl;
+
+import com.te.oms.orgs.service.OrgService;
+
+public class OrgServiceImpl implements OrgService {
+
+}

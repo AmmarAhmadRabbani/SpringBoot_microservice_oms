@@ -1,0 +1,67 @@
+package com.te.oms.emps.serviceimpl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.stereotype.Service;
+
+import com.te.oms.emps.dto.AddEmployeeDto;
+import com.te.oms.emps.dto.FetchEmployeeDto;
+import com.te.oms.emps.entity.Employee;
+import com.te.oms.emps.externalservices.DepartmentService;
+import com.te.oms.emps.externalservices.OrganizationService;
+import com.te.oms.emps.repo.EmployeeRepo;
+import com.te.oms.emps.service.EmployeeService;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class EmployeeServiceImpl implements EmployeeService {
+
+	private final EmployeeRepo employeeRepo;
+
+	private final DepartmentService departmentService;
+
+	private final OrganizationService organizationService;
+
+	@Override
+	public String addEmployee(AddEmployeeDto addEmployeeDto) {
+		Employee employee = new Employee();
+		BeanUtils.copyProperties(addEmployeeDto, employee);
+		employee.setDepartmentId(departmentService.findByDeptName(addEmployeeDto.getDeptName()).getDepartmentId());
+		employee.setOrganizationId(
+				organizationService.findByOrgId(addEmployeeDto.getOrganizationId()).getOrganizationId());
+		return employeeRepo.save(employee).getEmployeeId();
+	}
+
+	@Override
+	public FetchEmployeeDto findByEmpId(String empId) {
+		FetchEmployeeDto fetchEmployeeDto = new FetchEmployeeDto();
+		employeeRepo.findByEmployeeId(empId).map(employee -> {
+			BeanUtils.copyProperties(employee, fetchEmployeeDto);
+			fetchEmployeeDto.setDepartment(departmentService.findByDeptId(employee.getDepartmentId()));
+			fetchEmployeeDto.setOrganization(organizationService.findByOrgId(employee.getOrganizationId()));
+			return employee;
+		});
+		return fetchEmployeeDto;
+	}
+
+	@Override
+	public List<FetchEmployeeDto> findAllEmployees() {
+		List<FetchEmployeeDto> employeeDtos = new ArrayList<>();
+		employeeRepo.findAll().stream().map(employee -> {
+			FetchEmployeeDto fetchEmployeeDto = new FetchEmployeeDto();
+			BeanUtils.copyProperties(employee, fetchEmployeeDto);
+			fetchEmployeeDto.setDepartment(departmentService.findByDeptId(employee.getDepartmentId()));
+			fetchEmployeeDto.setOrganization(organizationService.findByOrgId(employee.getOrganizationId()));
+			employeeDtos.add(fetchEmployeeDto);
+			return employee;
+		});
+		System.out.println(employeeDtos);
+		
+		return employeeDtos;
+	}
+
+}

@@ -1,0 +1,24 @@
+package com.te.oms.orgs.response;
+
+import com.te.oms.emps.response.AppResponse;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Setter
+@Getter
+public class AppResponse {
+
+	private int status;
+	private boolean error;
+	private String message;
+	private Object data;
+	
+	
+}

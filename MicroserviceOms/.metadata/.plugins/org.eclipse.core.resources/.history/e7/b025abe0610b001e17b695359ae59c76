@@ -1,0 +1,5 @@
+package com.te.oms.depts.response;
+
+public class AppResponse {
+
+}

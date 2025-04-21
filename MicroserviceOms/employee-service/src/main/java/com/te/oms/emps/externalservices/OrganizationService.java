@@ -1,0 +1,16 @@
+package com.te.oms.emps.externalservices;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.te.oms.emps.entity.Organization;
+
+
+
+@FeignClient(name="ORGANIZATION-SERVICE")
+public interface OrganizationService {
+	
+	@GetMapping("/org/findByOrgId/{id}")
+	public Organization findByOrgId(@PathVariable int id);
+}

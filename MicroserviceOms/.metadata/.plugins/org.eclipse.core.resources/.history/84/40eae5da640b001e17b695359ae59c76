@@ -1,0 +1,13 @@
+package com.te.oms.depts.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+
+import com.te.oms.depts.service.DeptService;
+
+@RestController
+public class DepartmentController {
+	
+	private final DeptService deptService;
+	
+
+}

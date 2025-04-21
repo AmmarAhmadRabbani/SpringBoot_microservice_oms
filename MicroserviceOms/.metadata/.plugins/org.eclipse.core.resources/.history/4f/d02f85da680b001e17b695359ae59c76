@@ -1,0 +1,5 @@
+package com.te.oms.orgs.controller;
+
+public class OrganizationController {
+
+}

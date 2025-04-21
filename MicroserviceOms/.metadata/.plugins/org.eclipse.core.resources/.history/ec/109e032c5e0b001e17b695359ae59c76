@@ -1,0 +1,5 @@
+package com.te.oms.depts.repo;
+
+public interface DepartmentRepo {
+
+}

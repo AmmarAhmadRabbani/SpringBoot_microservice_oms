@@ -1,0 +1,21 @@
+package com.te.oms.emps.externalservices;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.te.oms.emps.entity.Department;
+
+import lombok.extern.slf4j.Slf4j;
+
+
+@FeignClient(name="DEPARTMENT-SERVICE")
+public interface DepartmentService {
+	
+	@GetMapping("/dept/findByDeptName/{name}")
+	public Department findByDeptName(@PathVariable String name);
+
+	
+	@GetMapping("/dept/findByDeptId/{id}")
+	public Department findByDeptId(@PathVariable int id);
+}

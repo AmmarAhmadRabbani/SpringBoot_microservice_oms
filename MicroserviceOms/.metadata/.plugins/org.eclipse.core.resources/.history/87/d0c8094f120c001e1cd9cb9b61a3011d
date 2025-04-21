@@ -1,0 +1,50 @@
+package com.te.oms.depts.controller;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.te.oms.depts.entity.Department;
+import com.te.oms.depts.response.AppResponse;
+import com.te.oms.depts.service.DeptService;
+
+import lombok.RequiredArgsConstructor;
+
+@RestController
+@RequiredArgsConstructor
+@RequestMapping("/dept")
+public class DepartmentController {
+
+	private final DeptService deptService;
+
+	@PostMapping("/addDept")
+	public ResponseEntity<AppResponse> addDept(@RequestBody Department department) {
+		int deptId = deptService.addDept(department);
+
+		return new ResponseEntity<AppResponse>(AppResponse.builder().data(deptId)
+				.message("Department add with id -: " + deptId).error(false).status(HttpStatus.OK.value()).build(),
+				HttpStatus.OK);
+	}
+	
+	@GetMapping("/findByDeptName/{name}")
+	public Department findByDeptName(@PathVariable String name) {
+		return deptService.findByDeptName(name);
+	}
+	
+	@GetMapping("/findByDeptId/{id}")
+	public Department findByDeptId(@PathVariable int id) {
+		return deptService.findByDeptId(id);	
+	}
+	
+	@GetMapping("/findEmployeesInDept")
+	public Department findEmployeesInDept(@PathVariable String name) {
+		return null;
+		
+	}
+	
+}	

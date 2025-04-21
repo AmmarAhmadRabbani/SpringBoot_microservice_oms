@@ -1,0 +1,10 @@
+package com.te.oms.orgs.entity;
+
+public class Employee {
+	
+	private String employeeId;
+	private String employeeName;
+	private String employeeEmail;
+	private int employeeAge;
+
+}

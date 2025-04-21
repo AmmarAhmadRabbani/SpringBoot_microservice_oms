@@ -1,0 +1,20 @@
+package com.te.oms.emps.dto;
+
+import javax.persistence.Transient;
+
+import com.te.oms.emps.entity.Department;
+import com.te.oms.emps.entity.Organization;
+
+public class FetchEmployeeDto {
+	
+	private String employeeId;
+	private String employeeName;
+	private String employeeEmail;
+	private int employeeAge;
+	
+	
+	private Department department;
+	
+	
+}
+

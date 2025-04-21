@@ -1,0 +1,5 @@
+package com.te.oms.orgs.repo;
+
+public interface OrganizationRepo {
+
+}

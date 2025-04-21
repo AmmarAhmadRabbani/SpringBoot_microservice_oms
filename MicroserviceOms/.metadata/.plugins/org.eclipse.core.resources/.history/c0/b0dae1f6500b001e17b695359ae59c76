@@ -1,0 +1,9 @@
+package com.te.oms.emps.service;
+
+import com.te.oms.emps.dto.AddEmployeeDto;
+
+public interface EmployeeService {
+
+	int addEmployee(AddEmployeeDto addEmployeeDto);
+
+}

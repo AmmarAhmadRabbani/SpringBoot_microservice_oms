@@ -1,0 +1,27 @@
+package com.te.oms.emps.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Setter
+@Getter
+public class Employee {
+
+	@Id
+	private int employeeId;
+	private String employeeName;
+	private String employeeEmail;
+	private String employeePassword;
+	
+	
+	
+	
+}
